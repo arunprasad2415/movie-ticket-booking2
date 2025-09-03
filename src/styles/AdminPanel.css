@@ -1,0 +1,154 @@
+/* Admin Panel Wrapper */
+.admin-container {
+  padding-top: 120px; /* push content below CineBook navbar */
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background: #000; /* match CineBook dark theme */
+  color: white;
+}
+
+/* Admin Navbar (Movies, Theatres, Users) */
+.admin-navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-navbar button {
+  padding: 10px 20px;
+  border: none;
+  background: #333;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-navbar button.active {
+  background: #00d9ff; /* highlight active tab */
+  color: black;
+  font-weight: bold;
+}
+
+.admin-navbar button:hover {
+  background: #555;
+}
+
+/* Action Buttons (Add / View) */
+.admin-actions {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.action-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #444;
+  color: white;
+  transition: 0.3s;
+}
+
+.action-btn.active {
+  background: #00d9ff;
+  color: black;
+  font-weight: bold;
+}
+
+.action-btn:hover {
+  background: #666;
+}
+
+/* Forms */
+.form-container {
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form-container button {
+  padding: 10px 20px;
+  border: none;
+  background: #00d9ff;
+  color: black;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-container button:hover {
+  background: #00b5d4;
+}
+
+/* Table Styling */
+.list-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #111;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.list-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-container th,
+.list-container td {
+  border: 1px solid #444;
+  padding: 10px;
+  text-align: center;
+}
+
+.list-container th {
+  background: #222;
+  font-weight: bold;
+}
+
+.update-btn {
+  background: #28a745;
+  color: white;
+  padding: 6px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.update-btn:hover {
+  background: #218838;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
