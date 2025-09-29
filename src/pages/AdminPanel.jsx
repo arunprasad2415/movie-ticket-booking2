@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/AdminPanel.css";
 
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://backend2-3-hmvz.onrender.com/api";
 
 const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState("movies");

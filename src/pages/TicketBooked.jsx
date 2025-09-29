@@ -5,7 +5,6 @@ import { Navigate } from "react-router-dom";
 function TicketBooked() {
   const { ticketRecipt } = useContext(TicketContext);
 
-  // If no receipt, redirect back to movies
   if (!ticketRecipt) {
     return <Navigate to="/movies" replace />;
   }
@@ -63,7 +62,7 @@ function TicketBooked() {
 
         <hr style={{ margin: "15px 0" }} />
         <p style={{ fontWeight: "bold", color: "green" }}>
-          ✅ Enjoy your movie!
+         Enjoy your movie!
         </p>
       </div>
     </div>

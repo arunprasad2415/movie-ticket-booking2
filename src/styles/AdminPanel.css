@@ -1,13 +1,11 @@
-/* Admin Panel Wrapper */
 .admin-container {
-  padding-top: 120px; /* push content below CineBook navbar */
+  padding-top: 120px;
   font-family: Arial, sans-serif;
   min-height: 100vh;
-  background: #000; /* match CineBook dark theme */
+  background: #000;
   color: white;
 }
 
-/* Admin Navbar (Movies, Theatres, Users) */
 .admin-navbar {
   display: flex;
   justify-content: center;
@@ -27,7 +25,7 @@
 }
 
 .admin-navbar button.active {
-  background: #00d9ff; /* highlight active tab */
+  background: #00d9ff; 
   color: black;
   font-weight: bold;
 }
@@ -36,7 +34,6 @@
   background: #555;
 }
 
-/* Action Buttons (Add / View) */
 .admin-actions {
   text-align: center;
   margin-bottom: 20px;
@@ -63,7 +60,6 @@
   background: #666;
 }
 
-/* Forms */
 .form-container {
   background: #111;
   padding: 20px;
@@ -100,7 +96,6 @@
   background: #00b5d4;
 }
 
-/* Table Styling */
 .list-container {
   max-width: 1000px;
   margin: 0 auto;

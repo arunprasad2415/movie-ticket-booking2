@@ -14,7 +14,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("https://backend2-3-hmvz.onrender.com/api/auth/login", {
         email,
         password,
       });
@@ -25,12 +25,10 @@ const Login = () => {
 
       const { token, user } = res.data;
 
-      // Persist
       localStorage.setItem("token", token);
       localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("role", user.role); // <-- IMPORTANT
+      localStorage.setItem("role", user.role);
 
-      // Route by role
       const role = (user.role || "").toLowerCase();
       if (role === "admin") {
         navigate("/admin");

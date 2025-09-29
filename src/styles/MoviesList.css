@@ -1,6 +1,6 @@
 .movies-container {
   padding: 40px 20px;
-  padding-top: 100px; /* offset for navbar */
+  padding-top: 100px;
   background: #121212;
   color: white;
   min-height: 100vh;

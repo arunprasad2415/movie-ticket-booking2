@@ -7,7 +7,7 @@ const ManagerPanel = () => {
   const [movies, setMovies] = useState([]);
   const [theatres, setTheatres] = useState([]);
   const [activeTab, setActiveTab] = useState('movies');
-  const [viewType, setViewType] = useState('view'); // 'view' or 'add'
+  const [viewType, setViewType] = useState('view');
   const [formData, setFormData] = useState({});
   const [editingItem, setEditingItem] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -21,8 +21,8 @@ const ManagerPanel = () => {
     setLoading(true);
     try {
       const [moviesRes, theatresRes] = await Promise.all([
-        fetch('http://localhost:5000/api/movies', { headers: { Authorization: `Bearer ${token}` } }),
-        fetch('http://localhost:5000/api/theatres', { headers: { Authorization: `Bearer ${token}` } }),
+        fetch('https://backend2-3-hmvz.onrender.com/api/movies', { headers: { Authorization: `Bearer ${token}` } }),
+        fetch('https://backend2-3-hmvz.onrender.com/api/theatres', { headers: { Authorization: `Bearer ${token}` } }),
       ]);
 
       const moviesData = await moviesRes.json();
@@ -41,7 +41,6 @@ const ManagerPanel = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Build payload properly
     let payload = {};
     if (activeTab === 'movies') {
       payload = {
@@ -60,7 +59,7 @@ const ManagerPanel = () => {
       };
     }
 
-    const url = activeTab === 'movies' ? 'http://localhost:5000/api/movies' : 'http://localhost:5000/api/theatres';
+    const url = activeTab === 'movies' ? 'https://backend2-3-hmvz.onrender.com/api/movies' : 'https://backend2-3-hmvz.onrender.com/api/theatres';
     const method = editingItem ? 'PUT' : 'POST';
     const endpoint = editingItem ? `${url}/${editingItem._id}` : url;
 
@@ -83,7 +82,7 @@ const ManagerPanel = () => {
   };
 
   const handleDelete = async (id) => {
-    const url = activeTab === 'movies' ? `http://localhost:5000/api/movies/${id}` : `http://localhost:5000/api/theatres/${id}`;
+    const url = activeTab === 'movies' ? `https://backend2-3-hmvz.onrender.com/api/movies/${id}` : `https://backend2-3-hmvz.onrender.com/api/theatres/${id}`;
     try {
       const res = await fetch(url, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
       if (!res.ok) throw new Error(`Delete failed: ${res.status}`);

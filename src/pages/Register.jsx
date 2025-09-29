@@ -12,7 +12,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/register", { name, email, password });
+      await axios.post("https://backend2-3-hmvz.onrender.com/api/auth/register", { name, email, password });
       alert('Registration successful! Please login.');
       navigate('/login');
     } catch (err) {

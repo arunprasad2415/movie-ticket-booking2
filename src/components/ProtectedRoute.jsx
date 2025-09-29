@@ -26,14 +26,12 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
     return <Navigate to="/login" replace />;
   }
 
-  // Check expiration
   if (decoded.exp * 1000 < Date.now()) {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     return <Navigate to="/login" replace />;
   }
 
-  // Check role
   const userRole = localStorage.getItem("role");
   if (!allowedRoles.includes(userRole)) {
     return <Navigate to="/login" replace />;
