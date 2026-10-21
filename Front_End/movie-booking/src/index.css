@@ -1,0 +1,86 @@
+:root {
+  --bg: #050505;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.09);
+  --text: #f4f1ea;
+  --muted: rgba(244, 241, 234, 0.6);
+  --gold: #ffcf5a;
+  --gold-deep: #ffb300;
+  --red: #ff3c3c;
+  --red-deep: #d92b2b;
+  --green: #3ddc84;
+  --btn-bg: #ffffff;
+  --btn-bg-hover: #e5e5e5;
+  --btn-text: #0a0a0a;
+  --radius: 16px;
+  --font-display: 'Bebas Neue', 'Impact', sans-serif;
+  --font-body: 'Outfit', 'Segoe UI', sans-serif;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  font-family: var(--font-body);
+  line-height: 1.5;
+  color: var(--text);
+  background-color: var(--bg);
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60vw 40vw at 10% -10%, rgba(255, 60, 60, 0.12), transparent 60%),
+    radial-gradient(50vw 40vw at 100% 0%, rgba(255, 207, 90, 0.08), transparent 60%),
+    radial-gradient(70vw 50vw at 50% 120%, rgba(255, 60, 60, 0.08), transparent 60%);
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--red);
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0a0a0a; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--red); }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

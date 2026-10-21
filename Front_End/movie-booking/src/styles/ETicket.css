@@ -1,0 +1,234 @@
+.eticket-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eticket-header {
+  text-align: center;
+}
+
+.success-check {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+}
+
+.success-check svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.success-check circle {
+  stroke: var(--green);
+  stroke-dasharray: 152;
+  stroke-dashoffset: 152;
+  animation: draw 0.7s var(--ease-out) 0.1s forwards;
+}
+
+.success-check path {
+  stroke: var(--green);
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: draw 0.4s var(--ease-out) 0.7s forwards;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+.ticket {
+  --notch: 16px;
+  display: flex;
+  width: min(100%, 760px);
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.6));
+  animation: ticketIn 1s var(--ease-out) 0.5s both;
+}
+
+@keyframes ticketIn {
+  from { opacity: 0; transform: translateY(-60px) rotate(-3deg) scale(0.95); }
+  70%  { transform: translateY(6px) rotate(0.5deg); }
+  to   { opacity: 1; transform: none; }
+}
+
+.ticket-main,
+.ticket-stub {
+  position: relative;
+  padding: 28px 32px;
+}
+
+.ticket-main {
+  flex: 1;
+  background: linear-gradient(135deg, #1b1b1b 0%, #101010 100%);
+  border-radius: 20px 0 0 20px;
+  border: 1px solid rgba(255, 207, 90, 0.25);
+  border-right: none;
+  overflow: hidden;
+  -webkit-mask: radial-gradient(circle at 100% 0, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) top / 100% 51% no-repeat,
+                radial-gradient(circle at 100% 100%, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) bottom / 100% 51% no-repeat;
+  mask: radial-gradient(circle at 100% 0, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) top / 100% 51% no-repeat,
+        radial-gradient(circle at 100% 100%, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) bottom / 100% 51% no-repeat;
+}
+
+.ticket-main::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 207, 90, 0.12) 45%, rgba(255, 255, 255, 0.08) 50%, transparent 65%);
+  background-size: 250% 100%;
+  animation: shimmer 3.5s linear 1.5s infinite;
+  pointer-events: none;
+}
+
+.ticket-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+}
+
+.admit {
+  padding: 2px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-size: 15px;
+}
+
+.ticket-main h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(38px, 6vw, 56px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin-bottom: 22px;
+}
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+}
+
+.ticket-grid small,
+.ticket-stub small {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ticket-grid strong {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.ticket-stub {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  background: linear-gradient(to bottom, var(--gold), var(--gold-deep));
+  color: #111;
+  border-radius: 0 20px 20px 0;
+  -webkit-mask: radial-gradient(circle at 0 0, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) top / 100% 51% no-repeat,
+                radial-gradient(circle at 0 100%, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) bottom / 100% 51% no-repeat;
+  mask: radial-gradient(circle at 0 0, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) top / 100% 51% no-repeat,
+        radial-gradient(circle at 0 100%, transparent var(--notch), #000 calc(var(--notch) + 0.5px)) bottom / 100% 51% no-repeat;
+}
+
+.ticket-stub::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--notch);
+  bottom: var(--notch);
+  border-left: 3px dotted rgba(0, 0, 0, 0.35);
+}
+
+.ticket-stub small {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.stub-price {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 1;
+}
+
+.barcode {
+  width: 100%;
+  height: 54px;
+  background: repeating-linear-gradient(90deg,
+    #111 0 2px, transparent 2px 4px, #111 4px 5px, transparent 5px 8px,
+    #111 8px 11px, transparent 11px 12px, #111 12px 13px, transparent 13px 16px);
+}
+
+.ticket-stub code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.eticket-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 40px;
+  animation: riseIn 0.6s var(--ease-out) 1.3s both;
+}
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.confetti i {
+  position: absolute;
+  top: -20px;
+  left: var(--x);
+  width: 8px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--c);
+  opacity: 0;
+  transform: rotate(var(--r));
+  animation: confetti 2.6s cubic-bezier(0.3, 0.6, 0.5, 1) forwards;
+  animation-delay: calc(0.6s + var(--d));
+}
+
+@keyframes confetti {
+  0%   { opacity: 1; transform: translate3d(0, 0, 0) rotate(var(--r)); }
+  100% { opacity: 0; transform: translate3d(40px, 105vh, 0) rotate(calc(var(--r) + 720deg)); }
+}
+
+@media (max-width: 640px) {
+  .ticket { flex-direction: column; }
+  .ticket-main { border-radius: 20px 20px 0 0; border-right: 1px solid rgba(255, 207, 90, 0.25); -webkit-mask: none; mask: none; }
+  .ticket-stub { width: 100%; border-radius: 0 0 20px 20px; -webkit-mask: none; mask: none; }
+  .ticket-stub::before { left: 16px; right: 16px; top: 0; bottom: auto; border-left: none; border-top: 3px dotted rgba(0, 0, 0, 0.35); }
+}
+
+@media print {
+  .navbar, .eticket-actions, .confetti, .eticket-header { display: none !important; }
+  body::before { display: none; }
+  .ticket { animation: none; filter: none; }
+}
